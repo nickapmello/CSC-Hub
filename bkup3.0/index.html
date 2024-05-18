@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSC Secretaria</title>
+    <style>
+        .container input[type="text"],
+        .container input[type="password"],
+        .container select,
+        .container input[type="checkbox"] {
+            width: calc(100% - 10px);
+            margin-bottom: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="./assets/logo.png" alt="Logo da Escola" class="school-logo">
+            <h1>CSC Hub Secretaria</h1>
+        </header>
+        <div class="menu">
+            <button onclick="showForm('create')">Criar Cadastro</button>
+            <button onclick="showForm('update')">Atualizar Cadastro</button>
+        </div>
+        <form id="createForm" method="post" style="display: none;">
+            <input type="text" name="nome" placeholder="Nome">
+            <input type="text" name="telefone" placeholder="Telefone">
+            <input type="password" name="senha" placeholder="Senha">
+            <input type="text" name="endereco" placeholder="Endereço">
+            <input type="checkbox" id="professorCheckbox" name="tipo" value="professor">
+            <label for="professorCheckbox">Professor</label>
+            <button type="button" id="submitButton">Criar</button>
+        </form>        
+        <form id="updateForm" style="display: none;">
+            <input type="text" name="matricula" placeholder="Matrícula">
+            <input type="checkbox" id="professorCheckboxUpdate" name="tipoUpdate" value="professor">
+            <label for="professorCheckboxUpdate">Professor</label>
+            <button type="submit">Buscar</button>
+        </form> 
+        <div id="message" style="color: red; margin-top: 20px;"></div>  <!-- Mensagem de resposta aqui -->
+        <button onclick="resetForm()" class="back-button" style="display: none;">Voltar</button>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSC Secretaria</title>
+    <style>
+        .container input[type="text"],
+        .container input[type="password"],
+        .container select,
+        .container input[type="checkbox"] {
+            width: calc(100% - 10px);
+            margin-bottom: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="./assets/logo.png" alt="Logo da Escola" class="school-logo">
+            <h1>CSC Hub Secretaria</h1>
+        </header>
+        <div class="menu">
+            <button onclick="showForm('create')">Criar Cadastro</button>
+            <button onclick="showForm('update')">Atualizar Cadastro</button>
+        </div>
+        <form id="createForm" method="post" style="display: none;">
+            <input type="text" name="nome" placeholder="Nome">
+            <input type="text" name="telefone" placeholder="Telefone">
+            <input type="password" name="senha" placeholder="Senha">
+            <input type="text" name="endereco" placeholder="Endereço">
+            <input type="checkbox" id="professorCheckbox" name="tipo" value="professor">
+            <label for="professorCheckbox">Professor</label>
+            <button type="button" id="submitButton">Criar</button>
+        </form>        
+        <form id="updateForm" style="display: none;">
+            <input type="text" placeholder="Telefone">
+            <button type="submit">Buscar</button>
+        </form>
+        <button onclick="resetForm()" class="back-button" style="display: none;">Voltar</button>
+    </div>
+    <script>
+        function showForm(formName) {
+            document.getElementById('createForm').style.display = 'none';
+            document.getElementById('updateForm').style.display = 'none';
+            document.querySelector('.menu').style.display = 'none';
+            document.querySelector('.back-button').style.display = 'inline-block';
+            document.getElementById(formName + 'Form').style.display = 'block';
+        }
+    
+        function resetForm() {
+            document.querySelector('.menu').style.display = 'block';
+            document.querySelector('.back-button').style.display = 'none';
+            document.getElementById('createForm').style.display = 'none';
+            document.getElementById('updateForm').style.display = 'none';
+        }
+    
+        document.getElementById('submitButton').addEventListener('click', function() {
+            var formData = new FormData(document.getElementById('createForm'));
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'create_user.php', true);
+            xhr.onload = function () {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    // Checa a resposta do servidor
+                    if (xhr.responseText.includes("sucesso")) {
+                        alert("Registro criado com sucesso!");
+                        window.location.href = 'http://localhost/estagio/index.html'; // Redireciona para a home se sucesso
+                    } else {
+                        alert(xhr.responseText); // Mostra apenas o alerta se houver erro
+                    }
+                } else {
+                    alert('Falha ao enviar: ' + xhr.statusText);
+                }
+            };
+            xhr.onerror = function () {
+                alert('Erro na solicitação.');
+            };
+            xhr.send(formData);
+        });
+    </script>    
+</body>
+</html>
