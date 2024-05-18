@@ -4,15 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSC Secretaria</title>
-    <style>
-        .container input[type="text"],
-        .container input[type="password"],
-        .container select,
-        .container input[type="checkbox"] {
-            width: calc(100% - 10px);
-            margin-bottom: 10px;
-        }
-    </style>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -47,7 +38,7 @@
             <input type="text" name="nome" placeholder="Nome">
             <input type="text" name="telefone" placeholder="Telefone">
             <input type="text" name="endereco" placeholder="Endereço">
-            <input type="password" name="senha" placeholder="Senha (deixe em branco se não quiser alterar)">
+            <input type="password" name="senha" placeholder="Senha">
             <button type="submit">Salvar</button>
         </form>
         <button onclick="resetForm()" class="back-button" style="display: none;">Voltar</button>

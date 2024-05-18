@@ -43,6 +43,9 @@ document.getElementById('submitButton').addEventListener('click', function() {
 document.getElementById('updateForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevenir o comportamento padrão de submissão do formulário
 
+    // Limpar a mensagem de erro antes de iniciar a busca
+    document.getElementById('message').innerText = '';
+
     var matricula = document.querySelector('input[name="matricula"]').value;
     var isProfessor = document.getElementById('professorCheckboxUpdate').checked;
 
@@ -77,7 +80,7 @@ function populateEditForm(userInfo, isProfessor) {
     editForm.elements['nome'].value = userInfo.nome;
     editForm.elements['telefone'].value = userInfo.telefone;
     editForm.elements['endereco'].value = userInfo.endereco;
-    editForm.elements['senha'].value = ''; 
+    editForm.elements['senha'].value = ''; // Clear the password field
     editForm.elements['isProfessor'].value = isProfessor; // Store the isProfessor value
 }
 
@@ -108,6 +111,7 @@ document.getElementById('editForm').addEventListener('submit', function(event) {
     };
     xhr.send(formData);
 });
+
 
 
 
