@@ -10,9 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = isset($_POST['senha']) ? $_POST['senha'] : null;
     $isProfessor = $_POST['isProfessor'] == 'true' ? 'professor' : 'aluno';
 
-    // Adicionando logs para verificar os dados recebidos
-    error_log("Recebido POST para update_user.php");
-    error_log("Matrícula: $matricula, Nome: $nome, Telefone: $telefone, Endereço: $endereco, Status: $status, Senha: $senha, isProfessor: $isProfessor");
+    // Verifique se os dados foram recebidos corretamente
+    error_log("Matrícula: $matricula, Nome: $nome, Telefone: $telefone, Endereço: $endereco, Status: $status, Senha: $senha");
 
     if ($senha) {
         $sql = "UPDATE $isProfessor SET nome = ?, telefone = ?, endereco = ?, status = ?, senha = ? WHERE matricula = ?";

@@ -10,12 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $status = $_POST['status'];
     $tipo = isset($_POST['tipo']) && $_POST['tipo'] == 'professor' ? 'professor' : 'aluno';
 
-    // valida 11 numeros
-    if (strlen($telefone) != 11 || !ctype_digit($telefone)) {
-        echo "O número de telefone deve ter exatamente 11 dígitos e ser numérico.";
-        exit;
-    }
-
     $matricula = gerarMatricula($conn);
 
     $sqlInsert = "INSERT INTO $tipo (nome, telefone, senha, endereco, matricula, status) VALUES (?, ?, ?, ?, ?, ?)";

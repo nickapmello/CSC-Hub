@@ -18,7 +18,7 @@
         </div>
         <form id="createForm" method="post" style="display: none;">
             <input type="text" name="nome" placeholder="Nome">
-            <input type="text" name="telefone" placeholder="Telefone" maxlength="11">
+            <input type="text" name="telefone" placeholder="Telefone">
             <input type="password" name="senha" placeholder="Senha">
             <input type="text" name="endereco" placeholder="Endereço">
             <input type="checkbox" id="professorCheckbox" name="tipo" value="professor">
@@ -29,16 +29,13 @@
             </select>
             <button type="button" id="submitButton">Criar</button>
         </form>        
-        
         <form id="updateForm" style="display: none;">
             <input type="text" name="matricula" placeholder="Matrícula">
             <input type="checkbox" id="professorCheckboxUpdate" name="tipoUpdate" value="professor">
             <label for="professorCheckboxUpdate">Professor</label>
             <button type="submit">Buscar</button>
         </form> 
-        
         <div id="message" style="color: red; margin-top: 20px;"></div>  <!-- Mensagem de resposta aqui -->
-        
         <form id="editForm" style="display: none;">
             <input type="hidden" name="matricula">
             <input type="hidden" name="isProfessor">
@@ -53,7 +50,6 @@
             <button type="submit">Salvar</button>
         </form>
         <button onclick="resetForm()" class="back-button" style="display: none;">Voltar</button>
-        
     </div>
     <script src="scripts.js"></script>
 </body>
