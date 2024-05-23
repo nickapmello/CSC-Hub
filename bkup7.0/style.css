@@ -1,0 +1,81 @@
+.container {
+  width: 100%;
+  text-align: center;
+}
+
+header {
+  background-color: #003366; /* Azul escuro */
+  color: white;
+  padding: 20px 0;
+}
+
+.school-logo {
+  max-width: 200px; /* Aumentar o tamanho conforme necessário */
+  margin-bottom: 10px;
+}
+
+.menu {
+  background-color: #f4f4f4; /* Cor de fundo do menu */
+  padding: 20px;
+  margin-top: 20px;
+}
+
+#userInfo {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
+
+#editForm {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
+
+.menu button {
+  background-color: #007ACC; /* Azul claro */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menu button:hover {
+  background-color: #005699;
+}
+
+.back-button {
+  background-color: #CCCCCC; /* Cinza */
+  padding: 10px 20px;
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 20px auto;
+  align-items: center;
+}
+
+form input, form button {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+}
+
+form select {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
