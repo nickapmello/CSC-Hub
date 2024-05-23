@@ -10,14 +10,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = isset($_POST['senha']) ? $_POST['senha'] : null;
     $isProfessor = $_POST['isProfessor'] == 'true' ? 'professor' : 'aluno';
 
-    // Adicionando logs para verificar os dados recebidos
+    // verifica os dados recebidos
     error_log("Recebido POST para update_user.php");
     error_log("Matrícula: $matricula, Nome: $nome, Telefone: $telefone, Endereço: $endereco, Status: $status, Senha: $senha, isProfessor: $isProfessor");
 
     if ($senha) {
+        // senha hash
+        $senha_criptografada = password_hash($senha, PASSWORD_DEFAULT);
         $sql = "UPDATE $isProfessor SET nome = ?, telefone = ?, endereco = ?, status = ?, senha = ? WHERE matricula = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssssss", $nome, $telefone, $endereco, $status, $senha, $matricula);
+        $stmt->bind_param("ssssss", $nome, $telefone, $endereco, $status, $senha_criptografada, $matricula);
     } else {
         $sql = "UPDATE $isProfessor SET nome = ?, telefone = ?, endereco = ?, status = ? WHERE matricula = ?";
         $stmt = $conn->prepare($sql);

@@ -10,17 +10,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $status = $_POST['status'];
     $tipo = isset($_POST['tipo']) && $_POST['tipo'] == 'professor' ? 'professor' : 'aluno';
 
-    // valida 11 numeros
+    // valida 11 digitos
     if (strlen($telefone) != 11 || !ctype_digit($telefone)) {
         echo "O número de telefone deve ter exatamente 11 dígitos e ser numérico.";
         exit;
     }
 
+    // senha hash
+    $senha_criptografada = password_hash($senha, PASSWORD_DEFAULT);
+
     $matricula = gerarMatricula($conn);
 
     $sqlInsert = "INSERT INTO $tipo (nome, telefone, senha, endereco, matricula, status) VALUES (?, ?, ?, ?, ?, ?)";
     $stmtInsert = $conn->prepare($sqlInsert);
-    $stmtInsert->bind_param("ssssss", $nome, $telefone, $senha, $endereco, $matricula, $status);
+    $stmtInsert->bind_param("ssssss", $nome, $telefone, $senha_criptografada, $endereco, $matricula, $status);
     $stmtInsert->execute();
 
     if ($stmtInsert->affected_rows > 0) {

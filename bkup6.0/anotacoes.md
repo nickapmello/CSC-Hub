@@ -20,3 +20,12 @@ CREATE TABLE professor (
 
 ==================================================
 
+ALTER TABLE aluno ADD COLUMN status ENUM('Ativo', 'Inativo') DEFAULT 'Ativo';
+ALTER TABLE professor ADD COLUMN status ENUM('Ativo', 'Inativo') DEFAULT 'Ativo';
+
+================================================
+
+$host = 'localhost';
+$dbname = 'cschub'; 
+$user = 'root';          
+$password = '';          
