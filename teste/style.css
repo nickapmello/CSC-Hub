@@ -1,115 +1,85 @@
-* {
-    font-family: "Poppins";
-  }
-  
-  body {
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-    overflow-y: hidden;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Desativa o scroll */
+}
+
+.login-container {
     display: flex;
+    width: 100vw; /* Largura total da viewport */
+    height: 100vh; /* Altura total da viewport */
+}
+
+.login-image {
+    width: 70%; /* 70% da largura do container */
+    height: 100%; /* Altura total do container */
+    background: url('../assets/escola.png') no-repeat center center;
+    background-size: cover; /* Assegura que a imagem cubra todo o espaço */
+    position: relative; /* Necessário para posicionar o texto */
+}
+
+.login-image h2 {
+    position: absolute; /* Posicionamento absoluto sobre a imagem */
+    top: 10%; /* Distância do topo */
+    left: 50%; /* Centralizar horizontalmente */
+    transform: translateX(-50%); /* Ajuste fino para centralização perfeita */
+    color: white; /* Cor do texto */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra para melhorar legibilidade */
+    font-size: 24px; /* Tamanho do texto */
+}
+
+.login-form {
+    width: 30%; /* 30% da largura do container */
+    height: 100%; /* Altura total do container */
+    background-color: white;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #dde5f4;
-    height: 100vh;
-  }
-  
-  .screen-1 {
-    background: #f1f7fe;
-    padding: 2em;
-    display: flex;
-    flex-direction: column;
-    border-radius: 30px;
-    box-shadow: 0 0 2em #e6e9f9;
-    gap: 2em;
-  }
-  .screen-1 .logo {
-    margin-top: -3em;
-  }
-  .screen-1 .matricula {
-    background: white;
-    box-shadow: 0 0 2em #e6e9f9;
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    border-radius: 20px;
-    color: #4d4d4d;
-    margin-top: -3em;
-  }
-  .screen-1 .matricula input {
-    outline: none;
-    border: none;
-  }
-  .screen-1 .matricula input::-moz-placeholder {
-    color: black;
-    font-size: 0.9em;
-  }
-  .screen-1 .matricula input:-ms-input-placeholder {
-    color: black;
-    font-size: 0.9em;
-  }
-  .screen-1 .matricula input::placeholder {
-    color: black;
-    font-size: 0.9em;
-  }
-  .screen-1 .matricula ion-icon {
-    color: #4d4d4d;
-    margin-bottom: -0.2em;
-  }
-  .screen-1 .senha {
-    background: white;
-    box-shadow: 0 0 2em #e6e9f9;
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5em;
-    border-radius: 20px;
-    color: #4d4d4d;
-  }
-  .screen-1 .senha input {
-    outline: none;
-    border: none;
-  }
-  .screen-1 .senha input::-moz-placeholder {
-    color: black;
-    font-size: 0.9em;
-  }
-  .screen-1 .senha input:-ms-input-placeholder {
-    color: black;
-    font-size: 0.9em;
-  }
-  .screen-1 .senha input::placeholder {
-    color: black;
-    font-size: 0.9em;
-  }
-  .screen-1 .senha ion-icon {
-    color: #4d4d4d;
-    margin-bottom: -0.2em;
-  }
-  .screen-1 .senha .show-hide {
-    margin-right: -5em;
-  }
-  .screen-1 .login {
-    padding: 1em;
-    background: #3e4684;
+    padding: 40px;
+}
+
+.login-form .logo {
+    width: 50%; /* Tamanho do logo */
+    margin-bottom: 10px; /* Espaço abaixo do logo */
+}
+
+.login-form .access-info {
+    margin-bottom: 20px; /* Espaço abaixo do texto informativo */
+    text-align: center; /* Centraliza o texto */
+    font-size: 14px; /* Tamanho do texto */
+}
+
+input[type="text"], input[type="password"] {
+    width: 80%; /* Largura ajustada para melhor visualização */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 80%;
+    padding: 10px;
+    background-color: #0056b3;
     color: white;
     border: none;
-    border-radius: 30px;
-    font-weight: 600;
-  }
-  .screen-1 .footer {
-    display: flex;
-    font-size: 0.7em;
-    color: #5e5e5e;
-    gap: 14em;
-    padding-bottom: 10em;
-  }
-  .screen-1 .footer span {
+    border-radius: 4px;
     cursor: pointer;
-  }
-  
-  button {
-    cursor: pointer;
-  }
+}
+
+button:hover {
+    background-color: #004494;
+}
+
+a {
+    color: #0056b3;
+    text-decoration: none;
+    display: block; /* Faz com que 'Esqueceu a senha?' fique em uma nova linha */
+    margin-top: 10px; /* Espaço acima do link */
+}
+
+a:hover {
+    text-decoration: underline;
+}

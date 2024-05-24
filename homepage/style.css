@@ -1,0 +1,110 @@
+* {
+  font-family: "Poppins";
+}
+
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #dde5f4;
+  height: 100vh;
+  margin: 0;
+}
+
+.screen-1 {
+  background: #f1f7fe;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 30px;
+  box-shadow: 0 0 2em #e6e9f9;
+  gap: 1.5em; /* Espaçamento entre os elementos */
+  max-width: 400px;
+  width: 100%;
+}
+
+.logo {
+  width: 250px;
+  height: 250px;
+  margin-bottom: 1.5em; /* Espaçamento abaixo do logo */
+}
+
+.matricula, .senha {
+  background: white;
+  box-shadow: 0 0 2em #e6e9f9;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.matricula {
+  margin-bottom: 1.5em; /* Espaçamento entre matricula e senha */
+}
+
+.senha {
+  margin-bottom: 1.5em; /* Espaçamento entre senha e botão de login */
+}
+
+.matricula label, .senha label {
+  font-weight: 600;
+  color: #4d4d4d;
+}
+
+.sec-2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.sec-2 ion-icon {
+  color: #4d4d4d;
+}
+
+.sec-2 input {
+  outline: none;
+  border: none;
+  flex: 1;
+  font-size: 0.9em;
+  color: black;
+}
+
+.sec-2 input::placeholder {
+  color: black;
+  font-size: 0.9em;
+}
+
+.login {
+  padding: 1em;
+  background: #3e4684;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  font-size: 0.9em;
+  color: #5e5e5e;
+  margin-top: 1.5em; /* Espaçamento acima do rodapé */
+}
+
+.footer span {
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+}
