@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Colégio Sagrado Coração</title>
+    <title>Portal Colégio Sagrado Coração</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="login-container">
         <div class="login-image">
-            <h2>Bem-vindo ao Colégio Sagrado Coração</h2>
+            <h2>Bem-vindo ao Portal Colégio Sagrado Coração</h2>
         </div>
         <div class="login-form">
             <img src="../assets/logo.png" alt="Logo Sagrado" class="logo">
+            <p class="access-info">Para você ter acesso ao Portal, informe os dados abaixo.</p>
             <form action="/submit-login" method="post">
                 <input type="text" id="matricula" name="matricula" placeholder="Matrícula" required>
                 <input type="password" id="senha" name="senha" placeholder="Senha" required>
-                <button type="submit">Login</button>
+                <button type="submit">Acessar</button>
                 <a href="#">Esqueceu a senha?</a>
+                <p class="development-notice">Plataforma em Desenvolvimento...</p>
             </form>
         </div>
     </div>

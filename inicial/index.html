@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSC Secretaria</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="./assets/logo.png" alt="Logo da Escola" class="school-logo">
+        </header>
+        <div class="menu">
+            <button onclick="showUserTypeSelection()">Criar Cadastro</button>
+            <button onclick="showForm('update')">Atualizar Cadastro</button>
+        </div>
+        <div id="userTypeButtons" style="display: none;">
+            <button onclick="showUserForm('aluno')">Aluno</button>
+            <button onclick="showUserForm('professor')">Professor</button>
+            <button onclick="showUserForm('secretaria')">Secretaria</button>
+        </div>
+        <form id="createForm" style="display: none;" method="post">
+            <!-- Fields for creating a new user -->
+            <div class="form-row">
+                <input type="text" name="nome" placeholder="Nome completo">
+                <input type="text" name="cpf" placeholder="CPF">
+            </div>
+            <div class="form-row">
+                <input type="date" name="data_nascimento" placeholder="Data de Nascimento">
+                <input type="text" name="telefone" placeholder="Telefone de contato">
+            </div>
+            <div class="form-row">
+                <input type="text" name="endereco" placeholder="Endereço residencial completo">
+                <input type="email" name="email" placeholder="Endereço de e-mail">
+            </div>
+            <div class="form-row">
+                <input type="text" name="documento_identidade" placeholder="Documento de identidade">
+                <input type="text" name="info_saude" placeholder="Informações sobre condições de saúde específicas">
+            </div>
+            <div class="form-row">
+                <input type="text" name="nome_pais" placeholder="Nome dos pais">
+                <input type="text" name="telefone_pais" placeholder="Telefone dos pais para contato">
+            </div>
+            <div class="form-row">
+                <input type="text" name="cpf_pais" placeholder="CPF dos pais">
+                <input type="password" name="senha" placeholder="Senha" required>
+                <select name="status">
+                    <option value="Ativo">Ativo</option>
+                    <option value="Inativo">Inativo</option>
+                </select>
+            </div>
+            <button type="button" onclick="resetForm()" class="back-button">Voltar</button>
+            <button type="submit">Criar</button>
+        </form>
+        <form id="updateForm" style="display: none;">
+            <input type="text" name="matricula" placeholder="Matrícula">
+            <input type="checkbox" id="professorCheckboxUpdate" name="tipoUpdate" value="professor">
+            <label for="professorCheckboxUpdate">Professor</label>
+            <button type="submit">Buscar</button>
+        </form>       
+        <div id="message" style="color: red; margin-top: 20px;"></div>
+        <form id="editForm" style="display: none;">
+            <input type="hidden" name="matricula">
+            <input type="hidden" name="isProfessor">
+            <input type="text" name="nome" placeholder="Nome">
+            <input type="text" name="telefone" placeholder="Telefone">
+            <input type="text" name="endereco" placeholder="Endereço">
+            <input type="password" name="senha" placeholder="Senha">
+            <select name="status">
+                <option value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
+            </select>
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

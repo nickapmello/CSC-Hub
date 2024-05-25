@@ -1,9 +1,22 @@
 function showForm(formName) {
-    document.getElementById('createForm').style.display = 'none';
-    document.getElementById('updateForm').style.display = 'none';
-    document.querySelector('.menu').style.display = 'none';
-    document.querySelector('.back-button').style.display = 'inline-block';
-    document.getElementById(formName + 'Form').style.display = 'block';
+    if (formName === 'create') {
+        document.querySelector('.menu').style.display = 'none';
+        document.getElementById('userTypeButtons').style.display = 'block';
+    } else {
+        document.getElementById('createForm').style.display = 'none';
+        document.getElementById('updateForm').style.display = 'none';
+        document.querySelector('.menu').style.display = 'none';
+        document.querySelector('.back-button').style.display = 'inline-block';
+        document.getElementById(formName + 'Form').style.display = 'block';
+    }
+}
+
+function setUserType(type) {
+    document.getElementById('userTypeButtons').style.display = 'none';
+    var form = document.getElementById('createForm');
+    form.style.display = 'block';
+    form.querySelector('input[name="tipo"]').value = type; // Assuming you have an input to hold this value
+    // Additional logic to modify the form based on the type can go here
 }
 
 function resetForm() {
@@ -13,6 +26,35 @@ function resetForm() {
     document.getElementById('updateForm').style.display = 'none';
     location.reload(); //reload da page
 }
+
+function configureFormFields(type) { // botao aluno é selecionado, puxar o formulario certo
+    var form = document.getElementById('createForm');
+    form.innerHTML = '';  // Limpa qualquer conteúdo anterior
+    if (type === 'aluno') {
+        form.innerHTML = `
+            <input type="text" name="nome_completo" placeholder="Nome Completo" style="width: 100%;">
+            <input type="date" name="data_nascimento" placeholder="Data de Nascimento" style="width: 100%;">
+            <input type="text" name="cpf" placeholder="CPF" style="width: 100%;">
+            <input type="text" name="endereco_residencial" placeholder="Endereço Residencial" style="width: 100%;">
+            <input type="text" name="telefone_contato" placeholder="Telefone de Contato" style="width: 100%;">
+            <input type="email" name="email" placeholder="E-mail" style="width: 100%;">
+            <textarea name="info_saude" placeholder="Informações de Saúde" style="width: 100%;"></textarea>
+            <textarea name="documento_identidade" placeholder="Documento de Identidade" style="width: 100%;"></textarea>
+            <input type="text" name="nome_pais" placeholder="Nome dos Pais" style="width: 100%;">
+            <input type="text" name="telefone_pais" placeholder="Telefone dos Pais" style="width: 100%;">
+            <input type="text" name="cpf_pais" placeholder="CPF dos Pais" style="width: 100%;">
+            <select name="status" style="width: 100%;">
+                <option value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
+            </select>
+            <input type="password" name="senha" placeholder="Senha" style="width: 100%;">
+            <button type="submit">Registrar Aluno</button>
+        `;
+        form.style.display = 'block';
+    }
+    // Adicionar casos para outros tipos aqui
+}
+
 
 document.getElementById('submitButton').addEventListener('click', function() {
     var telefone = document.querySelector('input[name="telefone"]').value.trim();
