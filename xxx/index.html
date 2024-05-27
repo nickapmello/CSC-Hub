@@ -20,36 +20,49 @@
             <button onclick="setUserType('professor')">Professor</button>
             <button onclick="setUserType('secretaria')">Secretaria</button>
         </div>
-        <form id="createForm" method="post" action="create_user.php" style="display: none;">
+        <form id="createForm" method="post" action="create_aluno.php" style="display: none;">
             <div class="form-row">
-                <input type="text" name="nome_completo" placeholder="Nome Completo">
-                <input type="date" name="data_nascimento" placeholder="Data de Nascimento">
+                <input type="text" name="nome" placeholder="Nome Completo">
+                <input type="date" name="data" placeholder="Data de Nascimento">
             </div>
             <div class="form-row">
-                <input type="text" name="cpf" placeholder="CPF">
-                <input type="text" name="endereco_residencial" placeholder="Endereço Residencial">
+                <select name="genero">
+                    <option value="">Selecione o Gênero</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Feminino">Feminino</option>
+                    <option value="Outro">Outro</option>
+                </select>
+                <input type="text" name="naturalidade" placeholder="Naturalidade">
             </div>
             <div class="form-row">
-                <input type="text" name="telefone_contato" placeholder="Telefone de Contato">
-                <input type="email" name="email" placeholder="E-mail">
+                <input type="text" name="endereco" placeholder="Endereço Residencial">
+                <input type="text" name="CEP" placeholder="CEP">
+            </div>
+            <div class="form-row">
+                <input type="text" name="Nome_Pai" placeholder="Nome do Pai">
+                <input type="text" name="CPF_Pai" placeholder="CPF do Pai">
+            </div>
+            <div class="form-row">
+                <input type="text" name="Telefone_Pai" placeholder="Telefone do Pai">
+                <input type="text" name="Nome_Mae" placeholder="Nome da Mãe">
+            </div>
+            <div class="form-row">
+                <input type="text" name="CPF_Mae" placeholder="CPF da Mãe">
+                <input type="text" name="Telefone_Mae" placeholder="Telefone da Mãe">
             </div>
             <div class="form-row">
                 <textarea name="info_saude" placeholder="Informações de Saúde"></textarea>
-                <textarea name="documento_identidade" placeholder="Documento de Identidade"></textarea>
+                <textarea name="medicamento" placeholder="Uso de algum medicamento controlado"></textarea>
             </div>
             <div class="form-row">
-                <input type="text" name="nome_pais" placeholder="Nome dos Pais">
-                <input type="text" name="telefone_pais" placeholder="Telefone dos Pais">
-            </div>
-            <div class="form-row">
-                <input type="text" name="cpf_pais" placeholder="CPF dos Pais">
+                <input type="email" name="email" placeholder="E-mail">
                 <select name="status">
                     <option value="Ativo">Ativo</option>
                     <option value="Inativo">Inativo</option>
                 </select>
             </div>
             <div class="form-row">
-                <input type="password" name="senha" placeholder="Senha">
+                <input type="password" name="senha" placeholder="Senha para acessar a plataforma">
                 <button type="submit">Registrar Aluno</button>
             </div>
         </form>                     

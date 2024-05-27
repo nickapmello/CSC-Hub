@@ -22,7 +22,6 @@ function setUserType(type) {
     document.getElementById('createFormProfessor').style.display = 'none';
     document.getElementById('createFormSecretaria').style.display = 'none';
 
-    // Mostrar o formulário correto e o botão de voltar
     var form;
     switch (type) {
         case 'aluno':
