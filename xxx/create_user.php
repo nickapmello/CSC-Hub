@@ -2,35 +2,47 @@
 include 'db.php';
 include 'functions.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST['nome'];
-    $telefone = $_POST['telefone'];
-    $senha = $_POST['senha'];
-    $endereco = $_POST['endereco'];
-    $status = $_POST['status'];
-    $tipo = isset($_POST['tipo']) && $_POST['tipo'] == 'professor' ? 'professor' : 'aluno';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-    // valida 11 digitos
-    if (strlen($telefone) != 11 || !ctype_digit($telefone)) {
-        echo "O número de telefone deve ter exatamente 11 dígitos e ser numérico.";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    var_dump($_POST);
+    $nome_completo = $_POST['nome_completo'];
+    $data_nascimento = $_POST['data_nascimento'];
+    $cpf = $_POST['cpf'];
+    $endereco_residencial = $_POST['endereco_residencial'];
+    $telefone_contato = $_POST['telefone_contato'];
+    $email = $_POST['email'];
+    $info_saude = $_POST['info_saude'];
+    $documento_identidade = $_POST['documento_identidade'];
+    $nome_pais = $_POST['nome_pais'];
+    $telefone_pais = $_POST['telefone_pais'];
+    $cpf_pais = $_POST['cpf_pais'];
+    $status = $_POST['status'];
+    $senha = $_POST['senha']; // Considerando que a senha já vem do formulário
+
+    if (empty($senha)) {
+        echo "A senha não pode ser vazia.";
         exit;
     }
-
-    // senha hash
+    
     $senha_criptografada = password_hash($senha, PASSWORD_DEFAULT);
 
+    // Gerar matrícula
     $matricula = gerarMatricula($conn);
 
-    $sqlInsert = "INSERT INTO $tipo (nome, telefone, senha, endereco, matricula, status) VALUES (?, ?, ?, ?, ?, ?)";
+    // Instrução SQL para inserção
+    $sqlInsert = "INSERT INTO aluno (nome_completo, data_nascimento, cpf, endereco_residencial, telefone_contato, email, info_saude, documento_identidade, nome_pais, telefone_pais, cpf_pais, status, matricula, senha) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmtInsert = $conn->prepare($sqlInsert);
-    $stmtInsert->bind_param("ssssss", $nome, $telefone, $senha_criptografada, $endereco, $matricula, $status);
-    $stmtInsert->execute();
+    $stmtInsert->bind_param("ssssssssssssss", $nome_completo, $data_nascimento, $cpf, $endereco_residencial, $telefone_contato, $email, $info_saude, $documento_identidade, $nome_pais, $telefone_pais, $cpf_pais, $status, $matricula, $senha_criptografada);
 
-    if ($stmtInsert->affected_rows > 0) {
-        echo "<script>alert('Registro criado com sucesso!'); window.location.href = 'http://localhost/estagio/index.html';</script>";
+    // Executar inserção
+    if (!$stmtInsert->execute()) {
+        echo "Erro ao criar registro de aluno: " . $stmtInsert->error;
     } else {
-        echo "Erro ao criar registro: " . $stmtInsert->error;
-    }
+        echo "<script>alert('Registro de aluno criado com sucesso!'); window.location.href = 'http://localhost/estagio/xxx/index.html';</script>";
+    }    
 
     $stmtInsert->close();
     $conn->close();

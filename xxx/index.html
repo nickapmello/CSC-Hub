@@ -20,7 +20,7 @@
             <button onclick="setUserType('professor')">Professor</button>
             <button onclick="setUserType('secretaria')">Secretaria</button>
         </div>
-        <form id="createForm" method="post" style="display: none;">
+        <form id="createForm" method="post" action="create_user.php" style="display: none;">
             <div class="form-row">
                 <input type="text" name="nome_completo" placeholder="Nome Completo">
                 <input type="date" name="data_nascimento" placeholder="Data de Nascimento">
@@ -53,7 +53,22 @@
                 <button type="submit">Registrar Aluno</button>
             </div>
         </form>                     
-        
+
+        <form id="createFormProfessor" method="post" action="create_professor.php" style="display: none;">
+            <div class="form-row">
+                <input type="text" name="nome_completo" placeholder="Nome Completo">
+                <button type="submit">Registrar Professor</button>
+            </div>
+        </form>
+
+        <form id="createFormSecretaria" method="post" action="create_secretaria.php" style="display: none;">
+
+            <div class="form-row">
+                <input type="text" name="nome_completo" placeholder="Nome Completo">
+                <button type="submit">Registrar Secretaria</button>
+            </div>
+        </form>
+
         <form id="updateForm" style="display: none;">
             <input type="text" name="matricula" placeholder="Matrícula">
             <input type="checkbox" id="professorCheckboxUpdate" name="tipoUpdate" value="professor">
