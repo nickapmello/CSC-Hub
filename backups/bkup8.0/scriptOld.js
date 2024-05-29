@@ -1,50 +1,61 @@
-function showForm() {
-    document.querySelector('.menu').style.display = 'none'; // Hide main menu
-    document.getElementById('userTypeButtons').style.display = 'flex'; // Show user type buttons
+function showForm(formName) {
+    if (formName === 'create') {
+        document.querySelector('.menu').style.display = 'none';
+        document.getElementById('userTypeButtons').style.display = 'block';
+    } else {
+        document.getElementById('createForm').style.display = 'none';
+        document.getElementById('updateForm').style.display = 'none';
+        document.querySelector('.menu').style.display = 'none';
+        document.querySelector('.back-button').style.display = 'inline-block';
+        document.getElementById(formName + 'Form').style.display = 'block';
+    }
 }
 
-function showUserTypeSelection() {
-    document.querySelector('.menu').style.display = 'none';
-    document.getElementById('userTypeButtons').style.display = 'flex';
-}
-
-function showUserForm(userType) {
+function setUserType(type) {
     document.getElementById('userTypeButtons').style.display = 'none';
-    document.getElementById('createForm').style.display = 'block';
-    document.querySelector('.back-button').style.display = 'block'; // Ensure the back button is visible
+    var form = document.getElementById('createForm');
+    if (type === 'aluno') {
+        form.style.display = 'block';  // Mostra o formulário de Aluno
+    } else {
+        form.style.display = 'none';  // Esconde o formulário se não for 'aluno'
+    }
 }
 
 function resetForm() {
     document.querySelector('.menu').style.display = 'block';
-    document.getElementById('createForm').style.display = 'none';
-    document.getElementById('userTypeButtons').style.display = 'none';
     document.querySelector('.back-button').style.display = 'none';
-    location.reload(); // Optionally reload the page to reset state
+    document.getElementById('createForm').style.display = 'none';
+    document.getElementById('updateForm').style.display = 'none';
+    location.reload(); // Recarrega a página
 }
 
-document.getElementById('createForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-    var formData = new FormData(this); // Capture form data
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'create_user.php', true); // Make sure the path is correct
-
-    xhr.onload = function() {
-        if (xhr.status >= 200 && xhr.status < 300) {
-            alert('Registro criado com sucesso!');
-            window.location.href = 'index.html'; // Redirect if needed
-        } else {
-            alert('Erro ao criar registro: ' + xhr.statusText);
-        }
-    };
-
-    xhr.onerror = function() {
-        alert('Erro na solicitação.');
-    };
-
-    xhr.send(formData); // Send the form data
-});
-
+function configureFormFields(type) { // botao aluno é selecionado, puxar o formulario certo
+    var form = document.getElementById('createForm');
+    form.innerHTML = '';  // Limpa qualquer conteúdo anterior
+    if (type === 'aluno') {
+        form.innerHTML = `
+            <input type="text" name="nome_completo" placeholder="Nome Completo" style="width: 100%;">
+            <input type="date" name="data_nascimento" placeholder="Data de Nascimento" style="width: 100%;">
+            <input type="text" name="cpf" placeholder="CPF" style="width: 100%;">
+            <input type="text" name="endereco_residencial" placeholder="Endereço Residencial" style="width: 100%;">
+            <input type="text" name="telefone_contato" placeholder="Telefone de Contato" style="width: 100%;">
+            <input type="email" name="email" placeholder="E-mail" style="width: 100%;">
+            <textarea name="info_saude" placeholder="Informações de Saúde" style="width: 100%;"></textarea>
+            <textarea name="documento_identidade" placeholder="Documento de Identidade" style="width: 100%;"></textarea>
+            <input type="text" name="nome_pais" placeholder="Nome dos Pais" style="width: 100%;">
+            <input type="text" name="telefone_pais" placeholder="Telefone dos Pais" style="width: 100%;">
+            <input type="text" name="cpf_pais" placeholder="CPF dos Pais" style="width: 100%;">
+            <select name="status" style="width: 100%;">
+                <option value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
+            </select>
+            <input type="password" name="senha" placeholder="Senha" style="width: 100%;">
+            <button type="submit">Registrar Aluno</button>
+        `;
+        form.style.display = 'block';
+    }
+    // Adicionar casos para outros tipos aqui
+}
 
 
 document.getElementById('submitButton').addEventListener('click', function() {

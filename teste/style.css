@@ -4,6 +4,12 @@ html, body {
     margin: 0;
     padding: 0;
     overflow: hidden; /* Desativa o scroll para não mostrar barras de rolagem */
+    font-family: Arial, sans-serif; /* Fonte padrão */
+    box-sizing: border-box; /* Box sizing para todos os elementos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #005699, #007ACC); /* Gradiente azul */
 }
 
 /* Container principal que envolve a imagem e o formulário de login */
@@ -15,7 +21,7 @@ html, body {
 
 /* Estilização da área com a imagem de fundo */
 .login-image {
-    width: 75%; /* 70% da largura do container */
+    width: 75%; /* 75% da largura do container */
     height: 100%; /* Altura total do container */
     background: url('../assets/escola.png') no-repeat center center; /* Imagem de fundo centralizada e sem repetição */
     background-size: cover; /* Cobrir toda a área disponível */
@@ -37,75 +43,82 @@ html, body {
 
 /* Formulário de login */
 .login-form {
-    width: 25%; /* 30% da largura do container */
+    width: 25%; /* 25% da largura do container */
     height: 100%; /* Altura total do container */
-    background-color: white;
+    background-color: #003366; /* Cor de fundo igual à logocolorida.jpg */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Alinha os elementos ao topo */
+    justify-content: center; /* Alinha os elementos ao centro verticalmente */
     align-items: center;
-    padding: 20px 0; /* Padding apenas vertical para remover espaçamento lateral */
+    padding: 40px; /* Padding para o container */
     text-align: center; /* Centraliza os elementos filho horizontalmente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
 }
 
 /* Logo acima do texto de acesso */
 .login-form .logo {
-    width: 50%; /* Tamanho do logo */
-    margin-bottom: 10px; /* Espaço abaixo do logo */
+    width: 80%; /* Aumenta o tamanho do logo */
+    max-width: 300px; /* Limite máximo para o tamanho do logo */
+    margin-bottom: 20px; /* Espaço abaixo do logo */
 }
 
 /* Texto de instrução para acesso ao portal */
 .login-form .access-info {
-    width: calc(100% - 40px); /* Ajuste para alinhamento */
-    margin: 10px 20px; /* Espaçamento superior e inferior */
-    font-size: 16px;
+    width: 100%; /* Largura total do container */
+    margin-bottom: 20px; /* Espaço abaixo do texto */
+    font-size: 18px; /* Tamanho da fonte */
+    color: white; /* Cor do texto */
 }
 
 /* Estilização para inputs de matrícula e senha */
 input[type="text"], input[type="password"] {
-    width: calc(100% - 40px); /* Reduz a largura */
-    padding: 10px 15px; /* Padding interno, ajuste conforme necessário */
+    width: calc(100% - 80px); /* Reduz a largura */
+    padding: 8px 10px; /* Padding interno */
     margin-bottom: 10px; /* Espaço entre os elementos */
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
     box-sizing: border-box; /* Inclui padding e border na largura total */
+    font-size: 14px; /* Tamanho da fonte */
 }
 
 /* Botão de login */
 button {
-    width: calc(100% - 40px); /* Largura ajustada para alinhar com os inputs */
-    padding: 10px;
-    background-color: #0056b3;
-    color: white;
+    width: calc(100% - 80px); /* Largura ajustada para alinhar com os inputs */
+    padding: 8px 10px; /* Padding interno */
+    background-color: #005699; /* Cor de fundo */
+    color: white; /* Cor do texto */
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    margin-top: 15px; /* Espaço acima do botão */
+    margin-top: 10px; /* Espaço acima do botão */
+    font-size: 14px; /* Tamanho da fonte */
+    transition: background-color 0.3s, transform 0.3s; /* Transições para hover */
 }
 
 /* Efeito hover para o botão */
 button:hover {
-    background-color: #004494;
+    background-color: #003f6b; /* Tom mais escuro no hover */
+    transform: translateY(-2px); /* Efeito de elevação no hover */
 }
 
 /* Link para redefinição de senha, centralizado abaixo do botão */
 a {
-    color: #000; /* Cor do texto */
+    color: white; /* Cor do texto */
     text-decoration: none; /* Sem sublinhado */
     display: block;
-    margin-top: 5px; /* Espaço abaixo do botão */
-    font-size: 14px;
+    margin-top: 10px; /* Espaço abaixo do botão */
+    font-size: 14px; /* Tamanho da fonte */
 }
 
 /* Efeito hover para o link */
 a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Sublinhar no hover */
 }
 
 /* Nota sobre o desenvolvimento da plataforma */
 .development-notice {
     font-size: 14px;
-    color: #808080; /* Tom de cinza */
+    color: white; /* Tom de cinza claro */
     text-align: center;
-    margin-top: 400px; /* Espaço do último elemento ajustado para 370px */
+    margin-top: 200px; /* Espaço acima do texto */
 }

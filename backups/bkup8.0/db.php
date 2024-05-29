@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$dbname = 'cschub'; 
+$dbname = 'colegio'; 
 $user = 'root';          
 $password = '';           
 

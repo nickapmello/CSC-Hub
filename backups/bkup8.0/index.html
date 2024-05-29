@@ -20,25 +20,14 @@
             <button onclick="setUserType('professor')">Professor</button>
             <button onclick="setUserType('secretaria')">Secretaria</button>
         </div>
-        
-        <!-- Formulário de Busca -->
-        <form id="searchForm" method="post" action="search_user.php" style="display: none;">
+        <!-- formulario aluno -->
+        <form id="createForm" method="post" action="create_aluno.php" style="display: none;">
             <div class="form-row">
-                <input type="text" name="matricula" placeholder="Digite a matrícula">
-                <button type="submit" class="search-button">Buscar</button>
-            </div>
-        </form>
-
-        <!-- Formulário para criação e edição de Aluno -->
-        <form id="createForm" method="post" action="create_or_update_aluno.php" style="display: none;">
-            <input type="hidden" name="user_id" value="">
-            <input type="hidden" name="tipo" value="aluno">
-            <div class="form-row">
-                <input type="text" name="nome" placeholder="Nome Completo" required>
+                <input type="text" name="nome" placeholder="Nome Completo">
                 <input type="date" name="data" placeholder="Data de Nascimento">
             </div>
             <div class="form-row">
-                <select name="genero" required>
+                <select name="genero">
                     <option value="">Selecione o Gênero</option>
                     <option value="Masculino">Masculino</option>
                     <option value="Feminino">Feminino</option>
@@ -67,8 +56,8 @@
                 <textarea name="medicamento" placeholder="Uso de algum medicamento controlado"></textarea>
             </div>
             <div class="form-row">
-                <input type="email" name="email" placeholder="E-mail" required>
-                <select name="status" required>
+                <input type="email" name="email" placeholder="E-mail">
+                <select name="status">
                     <option value="Ativo">Ativo</option>
                     <option value="Inativo">Inativo</option>
                 </select>
@@ -77,18 +66,15 @@
                 <input type="password" name="senha" placeholder="Senha para acessar a plataforma">
                 <button type="submit">Registrar Aluno</button>
             </div>
-        </form>
-
-        <!-- Formulário para criação e edição de Professor -->
-        <form id="createFormProfessor" method="post" action="create_or_update_professor.php" style="display: none;">
-            <input type="hidden" name="user_id" value="">
-            <input type="hidden" name="tipo" value="professor">
+        </form>                     
+        <!-- formulario professor -->
+        <form id="createFormProfessor" method="post" action="create_professor.php" style="display: none;">
             <div class="form-row">
                 <input type="text" name="nome" placeholder="Nome Completo" required>
                 <input type="date" name="data_nascimento" placeholder="Data de Nascimento">
             </div>
             <div class="form-row">
-                <select name="genero" required>
+                <select name="genero">
                     <option value="">Selecione o Gênero</option>
                     <option value="Masculino">Masculino</option>
                     <option value="Feminino">Feminina</option>
@@ -98,7 +84,7 @@
             </div>
             <div class="form-row">
                 <input type="text" name="telefone" placeholder="Telefone">
-                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="email" name="email" placeholder="E-mail">
             </div>
             <div class="form-row">
                 <input type="text" name="endereco" placeholder="Endereço Residencial">
@@ -109,43 +95,50 @@
                 <input type="text" name="area_ensino" placeholder="Área de Ensino">
             </div>
             <div class="form-row">
-                <select name="status" required>
+                <select name="status">
                     <option value="Ativo">Ativo</option>
                     <option value="Inativo">Inativo</option>
                 </select>
                 <input type="password" name="senha" placeholder="Senha para acessar a plataforma">
+            </div>
+            <div class="form-row">
                 <button type="submit">Registrar Professor</button>
             </div>
         </form>
-
-        <!-- Formulário para criação e edição de Secretaria -->
-        <form id="createFormSecretaria" method="post" action="create_or_update_secretaria.php" style="display: none;">
-            <input type="hidden" name="user_id" value="">
-            <input type="hidden" name="tipo" value="secretaria">
+        <!-- formulario secretaria -->
+        <form id="createFormSecretaria" method="post" action="create_secretaria.php" style="display: none;">
             <div class="form-row">
                 <input type="text" name="nome" placeholder="Nome Completo" required>
                 <input type="text" name="cpf" placeholder="CPF" required>
             </div>
             <div class="form-row">
                 <input type="text" name="telefone" placeholder="Telefone">
-                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="email" name="email" placeholder="E-mail">
             </div>
             <div class="form-row">
                 <input type="text" name="endereco" placeholder="Endereço Residencial">
                 <input type="text" name="cep" placeholder="CEP">
             </div>
             <div class="form-row">
-                <select name="status" required>
+                <select name="status">
                     <option value="Ativo">Ativo</option>
                     <option value="Inativo">Inativo</option>
                 </select>
                 <input type="password" name="senha" placeholder="Senha para acessar a plataforma">
+            </div>
+            <div class="form-row">
                 <button type="submit">Registrar Secretaria</button>
             </div>
         </form>
+        <form id="updateForm" method="post" action="buscar_usuario.php" style="display: none;">
+            <input type="text" name="matricula" placeholder="Matrícula">
+            <button type="submit">Buscar</button>
+        </form>        
 
         <div id="message" style="color: red; margin-top: 20px;"></div>  <!-- Mensagem de resposta aqui -->       
-
+        <form id="editForm" style="display: none;">
+            <!-- Campos para editar informações do usuário serão adicionados aqui -->
+        </form>
         <button onclick="resetForm()" class="back-button" style="display: none;">Voltar</button>
         
     </div>

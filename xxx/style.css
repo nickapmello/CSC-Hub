@@ -1,3 +1,12 @@
+/* Estilos Gerais */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .container {
   width: 100%;
   text-align: center;
@@ -10,7 +19,7 @@ header {
 }
 
 .school-logo {
-  width: 100%; /* Logo ocupa até 90% da largura do header */
+  width: 100%; /* Logo ocupa até 100% da largura do header */
   max-width: 300px; /* Ajuste conforme o tamanho máximo desejado */
   height: auto; /* Mantém a proporção do logo */
   margin: auto; /* Centraliza o logo na barra */
@@ -20,36 +29,51 @@ header {
   background-color: #f4f4f4; /* Cor de fundo do menu */
   padding: 20px;
   margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
 }
 
 #userInfo, #editForm {
-  background-color: #f9f9f9;
+  background-color: #fff;
   padding: 20px;
   border: 1px solid #ccc;
   margin-top: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
 }
 
 .menu button, #userTypeButtons button {
   background-color: #007ACC; /* Azul claro */
   color: white;
   border: none;
-  padding: 10px 20px;
-  margin: 0 10px;
+  padding: 20px 40px; /* Ajustar o preenchimento para botões maiores */
+  font-size: 24px; /* Tamanho da fonte para tornar o texto mais visível */
+  margin: 10px; /* Espaço entre os botões */
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
+  border-radius: 8px; /* Bordas arredondadas para estética */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
 }
 
 .menu button:hover, #userTypeButtons button:hover {
-  background-color: #005699;
+  background-color: #005699; /* Tom mais escuro no hover */
+  transform: translateY(-2px); /* Efeito de elevação no hover */
 }
 
-.back-button {
-  background-color: #CCCCCC; /* Cinza */
+.back-button, .search-button, .form-row button {
+  background-color: #007ACC; /* Azul claro */
+  color: white;
+  border: none;
   padding: 10px 20px;
-  display: block;
-  width: 200px;
-  margin: 20px auto;
+  font-size: 16px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+  margin-left: 10px; /* Espaço à esquerda dos botões no form */
+}
+
+.back-button:hover, .search-button:hover, .form-row button:hover {
+  background-color: #005699; /* Tom mais escuro no hover */
+  transform: translateY(-2px); /* Efeito de elevação no hover */
 }
 
 form {
@@ -59,32 +83,47 @@ form {
   max-width: 800px;
   margin: 20px auto;
   align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
 }
 
 .form-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px; /* Aumenta o espaço entre as linhas */
+  margin-bottom: 20px; /* Espaço entre as linhas */
   width: 100%;
+  align-items: center;
 }
 
 .form-row input, .form-row select, .form-row textarea {
   flex: 1;
-  margin-right: 10px; /* Espaçamento à direita para todos exceto o último elemento */
-  padding: 10px; /* Aumenta o espaçamento interno */
+  margin-right: 10px; /* Espaçamento à direita */
+  padding: 10px; /* Espaçamento interno */
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-.form-row textarea {
-  height: 80px; /* Aumenta a altura fixa */
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus {
+  border-color: #007ACC; /* Cor da borda no foco */
+  box-shadow: 0 0 5px rgba(0, 122, 204, 0.5); /* Sombra no foco */
 }
 
-.form-row button {
-  margin-left: 10px; /* Margem à esquerda do botão */
+.form-row textarea {
+  height: 80px; /* Altura fixa */
+  resize: vertical; /* Permite redimensionar verticalmente */
 }
 
 .form-row:last-child {
   justify-content: center; /* Centraliza o botão de envio */
+}
+
+input[type="text"], input[type="date"], input[type="email"], input[type="password"], select, textarea {
+  width: calc(50% - 10px); /* Define a largura dos campos */
+}
+
+input[type="text"]:last-child, input[type="date"]:last-child, input[type="email"]:last-child, input[type="password"]:last-child, select:last-child, textarea:last-child {
+  margin-right: 0; /* Remove a margem direita do último elemento */
 }

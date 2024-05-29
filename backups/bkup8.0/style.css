@@ -1,0 +1,93 @@
+.container {
+  width: 100%;
+  text-align: center;
+}
+
+header {
+  background-color: #003366; /* Azul escuro */
+  color: white;
+  padding: 20px 0;
+}
+
+.school-logo {
+  width: 100%; /* Logo ocupa até 90% da largura do header */
+  max-width: 300px; /* Ajuste conforme o tamanho máximo desejado */
+  height: auto; /* Mantém a proporção do logo */
+  margin: auto; /* Centraliza o logo na barra */
+}
+
+.menu {
+  background-color: #f4f4f4; /* Cor de fundo do menu */
+  padding: 20px;
+  margin-top: 20px;
+}
+
+#userInfo, #editForm {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
+
+.menu button, #userTypeButtons button {
+  background-color: #007ACC; /* Azul claro */
+  color: white;
+  border: none;
+  padding: 40px 60px; /* Aumentar o preenchimento para tornar os botões maiores */
+  font-size: 30px; /* Aumentar o tamanho da fonte para tornar o texto mais visível */
+  margin: 15px 15px; /* Aumentar o espaço entre os botões */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 8px; /* Adiciona bordas arredondadas para estética */
+}
+
+.menu button:hover, #userTypeButtons button:hover {
+  background-color: #005699; /* Uma tonalidade mais escura para o hover */
+}
+
+
+.back-button {
+  background-color: #CCCCCC; /* Cinza */
+  padding: 10px 20px;
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  cursor: pointer;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  align-items: center;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Aumenta o espaço entre as linhas */
+  width: 100%;
+}
+
+.form-row input, .form-row select, .form-row textarea {
+  flex: 1;
+  margin-right: 10px; /* Espaçamento à direita para todos exceto o último elemento */
+  padding: 10px; /* Aumenta o espaçamento interno */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-row textarea {
+  height: 80px; /* Aumenta a altura fixa */
+}
+
+.form-row button {
+  margin-left: 10px; /* Margem à esquerda do botão */
+}
+
+.form-row:last-child {
+  justify-content: center; /* Centraliza o botão de envio */
+}

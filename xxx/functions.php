@@ -1,9 +1,7 @@
 <?php
 function gerarMatricula($conn) {
     $prefixo = "24";
-
-    // Alterado para buscar a última matrícula apenas da tabela aluno
-    $sql = "SELECT MAX(matricula) AS ultima_matricula FROM aluno";
+    $sql = "SELECT MAX(matricula) AS ultima_matricula FROM usuario";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -18,3 +16,4 @@ function gerarMatricula($conn) {
     $novoNumeroStr = str_pad($novoNumero, 4, "0", STR_PAD_LEFT);
     return $prefixo . $novoNumeroStr;
 }
+?>
